@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: nexus-backend
+    env: python
+    region: frankfurt
+    plan: free
+    buildCommand: cd formulaire-intelligent && pip install -r requirements.txt
+    startCommand: cd formulaire-intelligent && gunicorn app.main:app -w 4 -k uvicorn.workers.UvicornWorker
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9.0
+      - key: MONGODB_URL
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: FRONTEND_ORIGIN
+        sync: false

@@ -1,0 +1,143 @@
+{
+  "make_donation": {
+    "title": "Make a Donation",
+    "description": "Support our mission with a financial contribution",
+    "icon": "Heart",
+    "confirmation": "Thank you [name]! Your generous donation of $[amount] ([frequency]) has been received. We'll send a confirmation to [email]. Together, we're making a difference in [year]!",
+    "fields": {
+      "name": {
+        "type": "text",
+        "label": "Full Name",
+        "placeholder": "Enter your full name",
+        "required": true
+      },
+      "email": {
+        "type": "email",
+        "label": "Email Address",
+        "placeholder": "your@email.com",
+        "required": true
+      },
+      "amount": {
+        "type": "number",
+        "label": "Donation Amount ($)",
+        "placeholder": "50",
+        "min": 1,
+        "required": true
+      },
+      "frequency": {
+        "type": "select",
+        "label": "Frequency",
+        "options": ["One-time", "Monthly", "Quarterly", "Yearly"],
+        "required": true
+      },
+      "message": {
+        "type": "textarea",
+        "label": "Message (Optional)",
+        "placeholder": "Share why you're donating...",
+        "required": false
+      }
+    }
+  },
+  "join_volunteers": {
+    "title": "Join Our Volunteers",
+    "description": "Become part of our volunteer community",
+    "icon": "Users",
+    "confirmation": "Welcome to the team, [name]! We're excited to have you volunteer with us. Check [email] for your volunteer orientation details and next steps!",
+    "fields": {
+      "name": {
+        "type": "text",
+        "label": "Full Name",
+        "placeholder": "Enter your full name",
+        "required": true
+      },
+      "email": {
+        "type": "email",
+        "label": "Email Address",
+        "placeholder": "your@email.com",
+        "required": true
+      },
+      "phone": {
+        "type": "text",
+        "label": "Phone Number",
+        "placeholder": "+1 (555) 000-0000",
+        "required": true
+      },
+      "availability": {
+        "type": "checkbox",
+        "label": "Available Days",
+        "options": ["Weekdays", "Weekends", "Evenings"],
+        "required": true
+      },
+      "skills": {
+        "type": "textarea",
+        "label": "Skills & Interests",
+        "placeholder": "Tell us about your skills and what you're interested in...",
+        "required": false
+      }
+    }
+  },
+  "contact_us": {
+    "title": "Contact Us",
+    "description": "Get in touch with our team",
+    "icon": "Mail",
+    "confirmation": "Thanks for reaching out, [name]! We've received your message about [topic] and will respond to [email] within 48 hours.",
+    "fields": {
+      "name": {
+        "type": "text",
+        "label": "Full Name",
+        "placeholder": "Enter your full name",
+        "required": true
+      },
+      "email": {
+        "type": "email",
+        "label": "Email Address",
+        "placeholder": "your@email.com",
+        "required": true
+      },
+      "topic": {
+        "type": "select",
+        "label": "Topic",
+        "options": ["General Inquiry", "Partnership", "Press", "Feedback", "Other"],
+        "required": true
+      },
+      "message": {
+        "type": "textarea",
+        "label": "Message",
+        "placeholder": "How can we help you?",
+        "required": true
+      }
+    }
+  },
+  "request_information": {
+    "title": "Request Information",
+    "description": "Learn more about our programs and initiatives",
+    "icon": "Info",
+    "confirmation": "Hi [name]! We'll send detailed information about our programs to [email]. Keep an eye on your inbox!",
+    "fields": {
+      "name": {
+        "type": "text",
+        "label": "Full Name",
+        "placeholder": "Enter your full name",
+        "required": true
+      },
+      "email": {
+        "type": "email",
+        "label": "Email Address",
+        "placeholder": "your@email.com",
+        "required": true
+      },
+      "interest": {
+        "type": "checkbox",
+        "label": "Interested In",
+        "options": ["Community Programs", "Youth Services", "Education", "Health Services", "Emergency Relief"],
+        "required": true
+      },
+      "questions": {
+        "type": "textarea",
+        "label": "Specific Questions (Optional)",
+        "placeholder": "What would you like to know?",
+        "required": false
+      }
+    }
+  }
+}
