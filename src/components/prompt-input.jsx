@@ -1,16 +1,28 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
+import ReCAPTCHA from "react-google-recaptcha"
 import { Button } from "./ui/button"
 import { Textarea } from "./ui/textarea"
 import { Card } from "./ui/card"
 
 export function PromptInput({ onSubmit, isLoading = false }) {
   const [prompt, setPrompt] = useState("")
+  const [captchaToken, setCaptchaToken] = useState(null)
+  const recaptchaRef = useRef(null)
+
+  const handleCaptchaChange = (token) => {
+    setCaptchaToken(token)
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (prompt.trim()) {
+    if (prompt.trim() && captchaToken) {
       onSubmit(prompt.trim())
       setPrompt("")
+      setCaptchaToken(null)
+      // Reset the captcha for next submission
+      if (recaptchaRef.current) {
+        recaptchaRef.current.reset()
+      }
     }
   }
 
@@ -50,9 +62,19 @@ export function PromptInput({ onSubmit, isLoading = false }) {
               disabled={isLoading}
             />
 
+            {/* reCAPTCHA */}
+            <div className="flex justify-center">
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+                onChange={handleCaptchaChange}
+                theme="light"
+              />
+            </div>
+
             <Button
               type="submit"
-              disabled={isLoading || !prompt.trim()}
+              disabled={isLoading || !prompt.trim() || !captchaToken}
               className="w-full bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 hover:from-emerald-700 hover:via-teal-700 hover:to-cyan-700 dark:from-emerald-500 dark:via-teal-500 dark:to-cyan-500 dark:hover:from-emerald-600 dark:hover:via-teal-600 dark:hover:to-cyan-600 text-white py-6 text-xl font-bold disabled:opacity-50 disabled:cursor-not-allowed rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-[1.02]"
             >
               {isLoading ? (
