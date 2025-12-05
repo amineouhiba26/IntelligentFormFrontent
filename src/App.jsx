@@ -125,7 +125,7 @@ function App() {
       <div className="fixed top-6 right-6 z-40 flex gap-2">
         <Button
           onClick={() => setState("submissions")}
-          className="bg-white/10 hover:bg-white/20 shadow-xl text-white font-semibold px-4 py-3 rounded-xl border border-white/20 backdrop-blur-sm transition-all duration-200"
+          className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 shadow-2xl text-white font-semibold px-4 py-3 rounded-xl border-2 border-white/20 backdrop-blur-sm transition-all duration-200 transform hover:scale-105"
           title="View Archives"
         >
           <Database className="w-5 h-5" />
