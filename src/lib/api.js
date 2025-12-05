@@ -1,5 +1,5 @@
 // API configuration
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://formulaire-intelligent-1.onrender.com/api';
 
 /**
  * Classify mission from user prompt using AI
@@ -125,7 +125,7 @@ export async function getSubmissions(mission = null, limit = 50, skip = 0) {
 export async function healthCheck() {
   try {
     const response = await fetch(API_BASE_URL.replace('/api', '/health'));
-    
+
     if (!response.ok) {
       throw new Error(`API error: ${response.status}`);
     }
